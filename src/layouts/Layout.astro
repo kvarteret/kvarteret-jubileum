@@ -2,16 +2,17 @@
 import Marquee from "../components/ui/marquee";
 
 const headerContent = `
-  <span class="text-4xl font-bold flex space-x-4">
-    <span>KVARTERET 30 ÅR</span>
-	<img src="dak.svg" alt="DAK separator" class="inline h-10" />
-	<span>JUBILEUMSUKE</span><img src="dak.svg" alt="DAK separator" class="inline h-10 pr-4" />
+  <span class="text-4xl tracking-widest font-bold flex space-x-4 leading-10">
+    <span class="bg-gradient-to-tr from-primary-gold-300 to-primary-gold-600 text-transparent bg-clip-text">KVARTERET 30 ÅR</span>
+    <img src="dak.svg" alt="DAK separator" class="inline h-10" />
+    <span class="bg-gradient-to-tr from-primary-gold-300 to-primary-gold-600 text-transparent bg-clip-text">JUBILEUMSUKE</span>
+    <img src="dak.svg" alt="DAK separator" class="inline h-10 pr-4" />
   </span>
 `
 ---
 
 <!DOCTYPE html>
-<html class="bg-black text-primary-gold font-glacial" lang="en">
+<html class="subpixel-antialiased" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -20,7 +21,7 @@ const headerContent = `
     <title>Astro Basics</title>
   </head>
 
-  <body class="mx-auto bg-gold-dots bg-dots-lg bg-dots">
+  <body class="bg-black text-primary-gold font-glacial mx-auto">
     <header>
       <div class="bg-black overflow-x-hidden py-4">
         <Marquee className="[--duration:60s] [--gap:0rem]">

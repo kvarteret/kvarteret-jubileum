@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card"
+import { Button } from "../components/ui/button"
 import { cn } from "@/lib/utils"
 
 interface Event {
@@ -29,7 +30,7 @@ interface EventHeaderProps {
 
 export const EventCard = ({ event, className }: EventCardProps) => {
   return (
-    <Card className={cn("w-full h-full max-w-md", className)}>
+    <Card className={cn("w-full h-full rounded-sm", className)}>
       <EventHeader
         title={event.Tittel}
         date={event.Dato}
@@ -50,17 +51,27 @@ export const EventCard = ({ event, className }: EventCardProps) => {
 
 
 const EventHeader = ({ title, date, time, location, price }: EventHeaderProps) => (
-  <CardHeader>
-    <div className="flex justify-between items-start">
-      <CardTitle className="text-xl">{title}</CardTitle>
-      <div className="text-right">
-        <p className="text-sm font-medium">{date}</p>
-        {time && <p className="text-sm">{time}</p>}
+  <CardHeader className="space-y-4">
+    <div className="flex justify-between items-start gap-4">
+      <CardTitle className="text-xl tracking-wide uppercase font-bold leading-tight">{title}</CardTitle>
+      <div className="text-right shrink-0">
+        <p className="text-sm font-semibold text-primary-gold">{date}</p>
+        {time && <p className="text-sm text-muted-foreground">{time}</p>}
       </div>
     </div>
     <CardDescription>
-      {location && <p>{location}</p>}
-      {price && <p>Pris: {price}</p>}
+      {location && (
+        <div className="flex items-center text-sm">
+          <span className="font-medium">📍</span>
+          <span className="ml-1">{location}</span>
+        </div>
+      )}
+      {price && (
+        <div className="flex items-center text-sm">
+          <span className="font-medium">💰</span>
+          <span className="ml-1">CC {price}</span>
+        </div>
+      )}
     </CardDescription>
   </CardHeader>
 )
@@ -72,7 +83,9 @@ interface EventCollaborationProps {
 const EventCollaboration = ({ collaborator }: EventCollaborationProps) => (
   <CardContent>
     {collaborator && (
-      <p className="text-sm">I samarbeid med: {collaborator}</p>
+      <p className="text-sm text-muted-foreground italic">
+        I samarbeid med <span className="font-medium not-italic">{collaborator}</span>
+      </p>
     )}
   </CardContent>
 )
@@ -91,25 +104,34 @@ const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
   return (
     <CardFooter className="gap-4">
       {hasTickets && (
-        <a
-          href={ticketUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary-gold hover:underline"
+        <Button
+          asChild
+          variant="gold"
         >
-          Kjøp billetter
-        </a>
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🎟️ Kjøp billetter
+          </a>
+        </Button>
       )}
       {hasFacebook && (
-        <a
-          href={facebookUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary-gold hover:underline"
+        <Button
+          asChild
+          variant="goldOutline"
         >
-          Facebook-arrangement
-        </a>
+          <a
+            href={facebookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📱 Facebook-arrangement
+          </a>
+        </Button>
       )}
     </CardFooter>
   )
 }
+
