@@ -1,20 +1,20 @@
 .PHONY: install dev build preview clean
 
-default:
-	dev
+default: dev
 
 install:
-	npm install
+	@npm install
 
 dev:
-	npm run dev
+	@[ -d "node_modules" ] || $(MAKE) install
+	@npm run dev
 
 build:
-	npm run build
+	@npm run build
 
 preview:
-	npm run preview
+	@npm run preview
 
 clean:
-	rm -rf dist/
-	rm -rf node_modules/
+	@rm -rf dist/
+	@rm -rf node_modules/
