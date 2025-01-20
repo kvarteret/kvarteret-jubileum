@@ -22,8 +22,8 @@ const headerContent = `
   </head>
 
   <body class="bg-black text-primary-gold font-glacial mx-auto">
-    <header>
-      <div class="bg-black overflow-x-hidden py-4">
+    <header class="sticky top-0">
+      <div class="overflow-x-hidden py-4">
         <Marquee className="[--duration:60s] [--gap:0rem]">
 		  <div set:html={headerContent}></div>
         </Marquee>
@@ -33,7 +33,7 @@ const headerContent = `
     <ParticlesComponent client:load />
     <slot />
 
-    <footer class="bg-black fixed bottom-0 w-full p-4 text-center">
+    <footer class="w-full p-4 text-center">
       Med 💛 fra E-tjenesten og Jubileumskomiteen | <a
         class="font-bold underline"
         href="https://blifrivillig.no">Bli frivillig!</a
