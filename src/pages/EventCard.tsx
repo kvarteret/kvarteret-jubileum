@@ -103,24 +103,10 @@ const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
 
   return (
     <CardFooter className="gap-4 flex flex-wrap">
-      {hasTickets && (
-        <Button
-          asChild
-          variant="gold"
-        >
-          <a
-            href={ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🎟️ Kjøp billetter
-          </a>
-        </Button>
-      )}
       {hasFacebook && (
         <Button
           asChild
-          variant="goldOutline"
+          variant="gold"
         >
           <a
             href={facebookUrl}
@@ -131,6 +117,21 @@ const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
           </a>
         </Button>
       )}
+      {hasTickets && (
+        <Button
+          asChild
+          variant="goldOutline"
+        >
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🎟️ Kjøp billetter
+          </a>
+        </Button>
+      )}
+      
     </CardFooter>
   )
 }
