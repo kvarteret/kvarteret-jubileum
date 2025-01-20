@@ -26,6 +26,29 @@ interface EventHeaderProps {
   price?: string
 }
 
+
+export const EventCard = ({ event, className }: EventCardProps) => {
+  return (
+    <Card className={cn("w-full h-full max-w-md", className)}>
+      <EventHeader
+        title={event.Tittel}
+        date={event.Dato}
+        time={event.Når}
+        location={event.Hvor}
+        price={event["Pris S\\O"]}
+      />
+      <EventCollaboration
+        collaborator={event["Samarbeid med"]}
+      />
+      <EventLinks
+        ticketUrl={event["Link til TicketCo"]}
+        facebookUrl={event["FB-Event"]}
+      />
+    </Card>
+  )
+}
+
+
 const EventHeader = ({ title, date, time, location, price }: EventHeaderProps) => (
   <CardHeader>
     <div className="flex justify-between items-start">
@@ -88,26 +111,5 @@ const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
         </a>
       )}
     </CardFooter>
-  )
-}
-
-export const EventCard = ({ event, className }: EventCardProps) => {
-  return (
-    <Card className={cn("w-full max-w-md", className)}>
-      <EventHeader
-        title={event.Tittel}
-        date={event.Dato}
-        time={event.Når}
-        location={event.Hvor}
-        price={event["Pris S\\O"]}
-      />
-      <EventCollaboration
-        collaborator={event["Samarbeid med"]}
-      />
-      <EventLinks
-        ticketUrl={event["Link til TicketCo"]}
-        facebookUrl={event["FB-Event"]}
-      />
-    </Card>
   )
 }
