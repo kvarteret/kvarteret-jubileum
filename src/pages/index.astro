@@ -2,32 +2,14 @@
 // import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css'
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { EventCard } from './EventCard'
+import events from '@/assets/events.json'
 ---
 
 <Layout>
-	<div class="my-8 pb-24 grid grid-cols-2 gap-8 w-1/2 mx-auto">
-		{[1,2,3,4, 5, 6, 7, 8, 8, 10, 11, 12].map(() => (
-			<Card>
-				<CardHeader>
-					<CardTitle>Card Title</CardTitle>
-					<CardDescription>Card Description</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<p>Card Content</p>
-				</CardContent>
-				<CardFooter>
-					<p>Card Footer</p>
-				</CardFooter>
-			</Card>
+	<div class="my-8 pb-24 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto px-4">
+		{events.map((event) => (
+			<EventCard client:load event={event} />
 		))}
 	</div>
 </Layout>
