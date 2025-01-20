@@ -1,0 +1,64 @@
+
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadFull } from "tsparticles";
+
+  window.addEventListener("load", async () => {
+    await loadFull(tsParticles);
+    
+    await tsParticles.load({
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#eeda72"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.5,
+          random: false
+        },
+        size: {
+          value: 3,
+          random: true
+        },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#eeda72",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          outModes: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detectsOn: "canvas",
+        events: {
+          onHover: {
+            enable: true,
+            mode: "repulse"
+          },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+  });
+</script>
+
+<div id="tsparticles" class="fixed inset-0 -z-10"></div> 

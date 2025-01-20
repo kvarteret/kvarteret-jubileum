@@ -1,22 +1,51 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Marquee from "../components/ui/marquee";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const headerContent = `
+  <span class="text-4xl font-bold flex space-x-4">
+    <span>KVARTERET 30 ÅR</span>
+	<img src="dak.svg" alt="DAK separator" class="inline h-10" />
+	<span>JUBILEUMSUKE</span><img src="dak.svg" alt="DAK separator" class="inline h-10 pr-4" />
+  </span>
+`
+---
+
+<!DOCTYPE html>
+<html class="bg-black text-primary-gold font-glacial" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+
+  <body class="mx-auto bg-gold-dots bg-dots-lg bg-dots">
+    <header>
+      <div class="bg-black overflow-x-hidden py-4">
+        <Marquee className="[--duration:60s] [--gap:0rem]">
+		  <div set:html={headerContent}></div>
+        </Marquee>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="bg-black fixed bottom-0 w-full p-4 text-center">
+      Med 💛 fra E-tjenesten og Jubileumskomiteen | <a
+        class="font-bold underline"
+        href="https://blifrivillig.no">Bli frivillig!</a
+      >
+    </footer>
+  </body>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</html>
