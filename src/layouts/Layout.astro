@@ -1,6 +1,6 @@
 ---
 import Marquee from "../components/ui/marquee";
-
+import { ParticlesComponent } from "../components/Particles"
 const headerContent = `
   <span class="text-4xl tracking-widest font-bold flex space-x-4 leading-10">
     <span class="bg-gradient-to-tr from-primary-gold-300 to-primary-gold-600 text-transparent bg-clip-text">KVARTERET 30 ÅR</span>
@@ -30,6 +30,7 @@ const headerContent = `
       </div>
     </header>
 
+    <ParticlesComponent client:load />
     <slot />
 
     <footer class="bg-black fixed bottom-0 w-full p-4 text-center">
