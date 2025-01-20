@@ -53,7 +53,7 @@ export const EventCard = ({ event, className }: EventCardProps) => {
 const EventHeader = ({ title, date, time, location, price }: EventHeaderProps) => (
   <CardHeader className="space-y-4">
     <div className="flex justify-between items-start gap-4">
-      <CardTitle className="text-xl tracking-wide uppercase font-bold leading-tight">{title}</CardTitle>
+      <CardTitle className="text-xl flex tracking-wide uppercase font-bold leading-tight">{title}</CardTitle>
       <div className="text-right shrink-0">
         <p className="text-sm font-semibold text-primary-gold">{date}</p>
         {time && <p className="text-sm text-muted-foreground">{time}</p>}
@@ -102,7 +102,7 @@ const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
   if (!hasTickets && !hasFacebook) return null
 
   return (
-    <CardFooter className="gap-4">
+    <CardFooter className="gap-4 flex flex-wrap">
       {hasTickets && (
         <Button
           asChild
