@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { cn } from "@/lib/utils"
+import styles from './EventCard.module.css'
 
 interface Event {
   Dato: string
@@ -20,11 +21,9 @@ interface EventCardProps {
 }
 
 interface EventHeaderProps {
-  title: string
-  date: string
-  time?: string
-  location?: string
-  price?: string
+  title: string;
+  time?: string;
+  location?: string;
 }
 
 
@@ -33,48 +32,33 @@ export const EventCard = ({ event, className }: EventCardProps) => {
     <Card className={cn("w-full h-full rounded-sm", className)}>
       <EventHeader
         title={event.Tittel}
-        date={event.Dato}
         time={event.Når}
         location={event.Hvor}
-        price={event["Pris S\\O"]}
       />
-      <EventCollaboration
-        collaborator={event["Samarbeid med"]}
-      />
+      <EventCollaboration collaborator={event["Samarbeid med"]} />
       <EventLinks
         ticketUrl={event["Link til TicketCo"]}
         facebookUrl={event["FB-Event"]}
+        price={event["Pris S\\O"]}
       />
     </Card>
-  )
+  );
 }
 
 
-const EventHeader = ({ title, date, time, location, price }: EventHeaderProps) => (
+const EventHeader = ({ title, time, location }: EventHeaderProps) => (
   <CardHeader className="space-y-4">
-    <div className="flex justify-between items-start gap-4">
-      <CardTitle className="text-xl flex tracking-wide uppercase font-bold leading-tight">{title}</CardTitle>
-      <div className="text-right shrink-0">
-        <p className="text-sm font-semibold text-primary-gold">{date}</p>
-        {time && <p className="text-sm text-muted-foreground">{time}</p>}
+    <div className="flex place-content-between">
+      <CardTitle className="text-xl flex tracking-wide uppercase font-bold leading-tight">
+        {title}
+      </CardTitle>
+      <div className="flex flex-col text-right">
+      {time && <p className="text-sm text-muted-foreground">{time}</p>}
+      {location && <span className="uppercase">{location}</span>}
       </div>
     </div>
-    <CardDescription>
-      {location && (
-        <div className="flex items-center text-sm">
-          <span className="font-medium">📍</span>
-          <span className="ml-1">{location}</span>
-        </div>
-      )}
-      {price && (
-        <div className="flex items-center text-sm">
-          <span className="font-medium">💰</span>
-          <span className="ml-1">CC {price}</span>
-        </div>
-      )}
-    </CardDescription>
   </CardHeader>
-)
+);
 
 interface EventCollaborationProps {
   collaborator?: string
@@ -83,8 +67,8 @@ interface EventCollaborationProps {
 const EventCollaboration = ({ collaborator }: EventCollaborationProps) => (
   <CardContent>
     {collaborator && (
-      <p className="text-sm text-muted-foreground italic">
-        I samarbeid med <span className="font-medium not-italic">{collaborator}</span>
+      <p className="text-sm text-muted-foreground">
+        I samarbeid med <span className="font-semibold">{collaborator}</span>
       </p>
     )}
   </CardContent>
@@ -93,46 +77,47 @@ const EventCollaboration = ({ collaborator }: EventCollaborationProps) => (
 interface EventLinksProps {
   ticketUrl?: string
   facebookUrl?: string
+  price?: string
 }
 
-const EventLinks = ({ ticketUrl, facebookUrl }: EventLinksProps) => {
+const EventLinks = ({ ticketUrl, facebookUrl, price }: EventLinksProps) => {
   const hasTickets = ticketUrl && ticketUrl !== "KOMMER"
   const hasFacebook = facebookUrl && facebookUrl !== "KOMMER"
 
   if (!hasTickets && !hasFacebook) return null
 
   return (
-    <CardFooter className="gap-4 flex flex-wrap">
-      {hasFacebook && (
-        <Button
-          asChild
-          variant="gold"
-        >
-          <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+    <CardFooter>
+      <div className={cn(styles["event-links-grid"], "gap-x-4 gap-y-1  items-start")}>
+        {hasFacebook && (
+          <Button asChild variant="gold" className={styles["facebook-btn"]}>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
+              📱 Facebook-arrangement
+            </a>
+          </Button>
+        )}
+        {price && (
+          <div
+            className={cn(styles["price-text"], "text-sm flex items-center")}
           >
-            📱 Facebook-arrangement
-          </a>
-        </Button>
-      )}
-      {hasTickets && (
-        <Button
-          asChild
-          variant="goldOutline"
-        >
-          <a
-            href={ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🎟️ Kjøp billetter
-          </a>
-        </Button>
-      )}
-      
+            <span className="font-medium">💰</span>
+            <span className="ml-1">CC {price}</span>
+          </div>
+        )}
+        {hasTickets && (
+          <>
+            <Button
+              asChild
+              variant="goldOutline"
+              className={styles["tickets-btn"]}
+            >
+              <a href={ticketUrl} target="_blank" rel="noopener noreferrer">
+                🎟️ Kjøp billetter
+              </a>
+            </Button>
+          </>
+        )}
+      </div>
     </CardFooter>
-  )
+  );
 }
-
