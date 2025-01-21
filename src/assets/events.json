@@ -5,10 +5,11 @@
       "Dag": "Mandag",
       "Hvor": "Grøndahls",
       "Tittel": "Lansering av jubileumsøl",
-      "Pris S\\O": "",
+      "Pris S\\O": "N\\A",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "Januar",
@@ -16,10 +17,11 @@
       "Dag": "",
       "Hvor": "Maos?",
       "Tittel": "Lansering av Merch-popup",
-      "Pris S\\O": "",
+      "Pris S\\O": "N\\A",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "12.februar ",
@@ -27,21 +29,23 @@
       "Dag": "Onsdag",
       "Hvor": "Storelogen",
       "Tittel": "Impro Battle",
-      "Pris S\\O": "",
+      "Pris S\\O": "GRATIS \\ 50",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": "Studentteateret Immaturus"
+      "Samarbeid med": "Studentteateret Immaturus",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "13.februar ",
       "Når": "18:00",
       "Dag": "torsdag ",
       "Hvor": "Teglverket",
-      "Tittel": "Åpnings-arrangement",
+      "Tittel": "Jubileumsåpning",
       "Pris S\\O": "GRATIS",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "13.februar ",
@@ -49,10 +53,11 @@
       "Dag": "torsdag ",
       "Hvor": "",
       "Tittel": "Standup med Komikk",
-      "Pris S\\O": "100 \\ 150",
+      "Pris S\\O": "140 \\ 200",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "14.februar ",
@@ -63,18 +68,20 @@
       "Pris S\\O": "200 \\ 250",
       "FB-Event": "https://fb.me/e/i7v3r22Ms",
       "Link til TicketCo": "https://asf.ticketco.events/no/nb/e/gaeste_gutter__klubb_gaeste__asf__kvarteret",
-      "Samarbeid med": "Aktive Studenters Forening"
+      "Samarbeid med": "Aktive Studenters Forening",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "14.februar ",
       "Når": "19:00 ",
       "Dag": "Fredag",
-      "Hvor": "Tivoli",
+      "Hvor": "Storelogen",
       "Tittel": "En Kroneis til Besto (mikro.prod)",
       "Pris S\\O": "",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": "Studentteateret Immaturus"
+      "Samarbeid med": "Studentteateret Immaturus",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "15.februar ",
@@ -85,7 +92,8 @@
       "Pris S\\O": "250 \\ 350",
       "FB-Event": "https://fb.me/e/81Pyl8qwg",
       "Link til TicketCo": "https://kvarteret.ticketco.events/no/nb/e/datarock",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "15.februar ",
@@ -96,18 +104,32 @@
       "Pris S\\O": "180 \\ 260",
       "FB-Event": "https://fb.me/e/2OTunSYKk",
       "Link til TicketCo": "https://kvarteret.ticketco.events/no/nb/e/tipsy_ibsen_en_folkefiende",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
-      "Dato": "",
+      "Dato": "15.februar ",
       "Når": "23:00",
       "Dag": "lørdag",
       "Hvor": "Tivoli",
       "Tittel": "Silent Disco: Galentines",
       "Pris S\\O": "",
-      "FB-Event": "",
-      "Link til TicketCo": "",
-      "Samarbeid med": "Studentersamfunnet"
+      "FB-Event": "KOMMER",
+      "Link til TicketCo": "KOMMER",
+      "Samarbeid med": "Studentersamfunnet",
+      "Skal ut": "TRUE"
+    },
+    {
+      "Dato": "15.februar ",
+      "Når": "TBA",
+      "Dag": "",
+      "Hvor": "Stjernesalen",
+      "Tittel": "Karaoke",
+      "Pris S\\O": "GRATIS",
+      "FB-Event": "KOMMER",
+      "Link til TicketCo": "N\\A",
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "15.februar ",
@@ -116,9 +138,10 @@
       "Hvor": "Storelogen",
       "Tittel": "En Kroneis til Besto (mikro.prod)",
       "Pris S\\O": "",
-      "FB-Event": "",
-      "Link til TicketCo": "",
-      "Samarbeid med": "Studentteateret Immaturus"
+      "FB-Event": "KOMMER",
+      "Link til TicketCo": "KOMMER",
+      "Samarbeid med": "Studentteateret Immaturus",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "16.februar ",
@@ -126,10 +149,11 @@
       "Dag": "søndag",
       "Hvor": "",
       "Tittel": "noe artige aktiviteter med printing og kos",
-      "Pris S\\O": "",
+      "Pris S\\O": "N\\A",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "16.februar ",
@@ -140,7 +164,8 @@
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": "Bergen FIlmklubb"
+      "Samarbeid med": "Bergen FIlmklubb",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "17.februar ",
@@ -151,18 +176,20 @@
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": "Bergen FIlmklubb"
+      "Samarbeid med": "Bergen FIlmklubb",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "17.februar ",
       "Når": "18:30?",
       "Dag": "mandag",
-      "Hvor": "Grøndahls/teglverket",
+      "Hvor": "Teglverket",
       "Tittel": "Ølsmaking m\\ jubileumsøl",
-      "Pris S\\O": "",
+      "Pris S\\O": "150 \\ 200",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "17.februar ",
@@ -173,7 +200,8 @@
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "18.februar ",
@@ -183,19 +211,21 @@
       "Tittel": "Quiz m/ Morten Almaas og Jon-Einar Sand",
       "Pris S\\O": "GRATIS",
       "FB-Event": "https://fb.me/e/2Rb2LAMyg",
-      "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Link til TicketCo": "N\\A",
+      "Samarbeid med": "",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "18.februar ",
       "Når": "18:00",
       "Dag": "tirsdag",
       "Hvor": "Storelogen",
-      "Tittel": "Debatt?: Legesnop eller Partydop",
+      "Tittel": "Upop: Legesnop eller Partydop",
       "Pris S\\O": "",
       "FB-Event": "",
-      "Link til TicketCo": "",
-      "Samarbeid med": "Studentersamfunnet"
+      "Link til TicketCo": "https://studentersamfunnetibergen.hoopla.no/event/682559469",
+      "Samarbeid med": "Studentersamfunnet",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "18.februar ",
@@ -203,10 +233,11 @@
       "Dag": "tirsdag",
       "Hvor": "Teglverket",
       "Tittel": "Konsert Himmelskip (Samklang)",
-      "Pris S\\O": "",
+      "Pris S\\O": "150",
       "FB-Event": "https://fb.me/e/2NCFtPGTS",
-      "Link til TicketCo": "",
-      "Samarbeid med": "Studentersamfunnet"
+      "Link til TicketCo": "https://studentersamfunnetibergen.hoopla.no/event/592141753",
+      "Samarbeid med": "Studentersamfunnet",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "19.februar ",
@@ -216,8 +247,9 @@
       "Tittel": "Samtalemøte: Aktteikning",
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
-      "Link til TicketCo": "KOMMER",
-      "Samarbeid med": "Studentersamfunnet"
+      "Link til TicketCo": "https://studentersamfunnetibergen.hoopla.no/event/399121932",
+      "Samarbeid med": "Studentersamfunnet",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "19.februar ",
@@ -228,40 +260,44 @@
       "Pris S\\O": "",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": "Studentteateret Immaturus"
+      "Samarbeid med": "Studentteateret Immaturus",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "19.februar ",
       "Når": "20:15",
       "Dag": "onsdag",
-      "Hvor": "Teglverket",
+      "Hvor": "Tivoli",
       "Tittel": "Korpils - en konsert med Sirenene, MAR og BLAK",
-      "Pris S\\O": "",
+      "Pris S\\O": "50 \\ 100",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": "MAR + Sirenene"
+      "Samarbeid med": "MAR + Sirenene",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "20.februar ",
       "Når": "18:00",
       "Dag": "torsdag ",
-      "Hvor": "Storelogen",
-      "Tittel": "Debatt?: Hundre år siden åttetimersdagen - på tide med seks?",
+      "Hvor": "Teglverket",
+      "Tittel": "Debatt: Hundre år siden åttetimersdagen - på tide med seks?",
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
-      "Link til TicketCo": "KOMMER",
-      "Samarbeid med": "Studentersamfunnet"
+      "Link til TicketCo": "https://studentersamfunnetibergen.hoopla.no/event/2096173049",
+      "Samarbeid med": "Studentersamfunnet",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "20.februar ",
       "Når": "",
       "Dag": "torsdag ",
       "Hvor": "Teglverket",
-      "Tittel": "Konsert: Vepsestikk",
+      "Tittel": "Konsert: Vepsestikk (IKKE RELEVANT ALLIKEVEL)",
       "Pris S\\O": "",
       "FB-Event": "KOMMER",
       "Link til TicketCo": "KOMMER",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "FALSE"
     },
     {
       "Dato": "21.februar ",
@@ -269,10 +305,11 @@
       "Dag": "fredag",
       "Hvor": "Teglverket",
       "Tittel": "Konsert: Pikekyss + Saksa",
-      "Pris S\\O": "",
+      "Pris S\\O": "200 \\ 300",
       "FB-Event": "https://fb.me/e/2URmXtQ91",
       "Link til TicketCo": "https://asf.ticketco.events/no/nb/e/pikekyss__saksa__asf__kvarteret",
-      "Samarbeid med": "Aktive Studenters Forening"
+      "Samarbeid med": "Aktive Studenters Forening",
+      "Skal ut": "TRUE"
     },
     {
       "Dato": "21.februar ",
@@ -280,9 +317,10 @@
       "Dag": "fredag",
       "Hvor": "Teglverket",
       "Tittel": "Minglekveld for interne i tredje",
-      "Pris S\\O": "",
+      "Pris S\\O": "N\\A",
       "FB-Event": "",
       "Link til TicketCo": "",
-      "Samarbeid med": ""
+      "Samarbeid med": "",
+      "Skal ut": "FALSE"
     }
   ]
