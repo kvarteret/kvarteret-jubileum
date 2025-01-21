@@ -64,9 +64,6 @@ const headerContent = `
     }
 
     @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
-      header {
-        background: hsl(0deg 0% 0% / 0.1);
-      }
 
       .backdrop {
         position: absolute;
@@ -75,7 +72,6 @@ const headerContent = `
         backdrop-filter: blur(16px);
         background: linear-gradient(
           to bottom,
-          hsl(0deg 0% 0% / 0.1),
           transparent 50%
         );
         pointer-events: none;
@@ -87,7 +83,7 @@ const headerContent = `
         height: 200%;
         -webkit-mask-image: linear-gradient(
           to bottom,
-          black 0% 50%,
+          black 0% 0%,
           transparent 50% 100%
         );
         mask-image: linear-gradient(
