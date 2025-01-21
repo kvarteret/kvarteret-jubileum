@@ -20,26 +20,30 @@ const headerContent = `
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
-
+  
   <body class="bg-black text-primary-gold font-glacial mx-auto">
-    <header class="sticky top-0 h-auto">
-      <div class="backdrop"></div>
-      <div class="backdrop-edge"></div>
-      <div class="overflow-x-hidden py-4">
-        <Marquee className="[--duration:60s] [--gap:0rem]">
-		  <div set:html={headerContent}></div>
-        </Marquee>
-      </div>
-    </header>
+	  <ParticlesComponent client:load />
+	  <header class="sticky top-0">
+		<div class="backdrop"></div>
+		<div class="overflow-x-hidden py-4">
+		  <Marquee className="[--duration:60s] [--gap:0rem]">
+			<div set:html={headerContent}></div>
+		  </Marquee>
+		</div>
+	  </header>
 
-    <ParticlesComponent client:load />
-    <slot />
+	  <main>
+		<slot />
+	  </main>
 
-    <footer class="w-full p-4 text-center">
-      Med 💛 fra E-tjenesten og Jubileumskomiteen | <a
+    <footer class="w-full p-4 text-center place-content-center flex flex-wrap space-x-4">
+      <span>Med 💛 fra E-tjenesten og Jubileumskomiteen</span>
+	  <span class="invisible sm:visible">|</span>
+	  <span><a
         class="font-bold underline"
         href="https://blifrivillig.no">Bli frivillig!</a
       >
+	</span>
     </footer>
   </body>
 
