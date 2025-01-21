@@ -92,7 +92,8 @@ const EventLinks = ({ ticketUrl, facebookUrl, price }: EventLinksProps) => {
         {hasFacebook && (
           <Button asChild variant="gold" className={styles["facebook-btn"]}>
             <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              📱 Facebook-arrangement
+            <img src="fb.svg" alt="Facebook logo" className="inline h-5" />
+               Til Arrangement
             </a>
           </Button>
         )}
@@ -112,7 +113,7 @@ const EventLinks = ({ ticketUrl, facebookUrl, price }: EventLinksProps) => {
               className={styles["tickets-btn"]}
             >
               <a href={ticketUrl} target="_blank" rel="noopener noreferrer">
-                🎟️ Kjøp billetter
+                🎟️ Kjøp Billetter
               </a>
             </Button>
           </>
