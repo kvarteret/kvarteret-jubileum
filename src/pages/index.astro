@@ -4,12 +4,87 @@ import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css'
 import { EventCard } from './EventCard'
 import events from '@/assets/events.json'
+
+const monthNames = [
+	'Januar',
+	'Februar',
+	'Mars',
+	'April',
+	'Mai',
+	'Juni',
+	'Juli',
+	'August',
+	'September',
+	'Oktober',
+	'November',
+	'Desember'
+] as const;
+
+// Helper function to parse Norwegian date format
+function parseNorwegianDate(dateStr: string) {
+	if (!dateStr) return new Date(0);
+	
+	const monthMap: Record<string, number> = {
+		'jan': 0, 'januar': 0,
+		'feb': 1, 'februar': 1,
+		'mar': 2, 'mars': 2,
+		'apr': 3, 'april': 3,
+		'mai': 4,
+		'jun': 5, 'juni': 5,
+		'jul': 6, 'juli': 6,
+		'aug': 7, 'august': 7,
+		'sep': 8, 'september': 8,
+		'okt': 9, 'oktober': 9,
+		'nov': 10, 'november': 10,
+		'des': 11, 'desember': 11
+	};
+
+	// Handle full month names like "Januar"
+	const monthOnly = dateStr.toLowerCase().trim();
+	if (monthMap[monthOnly] !== undefined) {
+		return new Date(2024, monthMap[monthOnly], 1);
+	}
+
+	// Handle dates like "27.jan."
+	const [day, month] = dateStr.toLowerCase().split(/\s*\.\s*/);
+	if (!month) return new Date(0);
+	
+	return new Date(2024, monthMap[month] || 0, parseInt(day) || 1);
+}
+
+function formatNorwegianDate(dateStr: string) {
+	if (dateStr === 'Udatert') return dateStr;
+	const date = parseNorwegianDate(dateStr);
+	const day = date.getDate();
+	const month = monthNames[date.getMonth()];
+	
+	// If it's just a month (day is 1 and original string doesn't contain a number)
+	if (day === 1 && !/\d/.test(dateStr)) {
+		return month;
+	}
+	
+	return `${day}. ${month}`;
+}
+
+type Event = typeof events[number];
+const publishedEvents = events.filter(event => event["Skal ut"] !== "FALSE");
+const groupedEvents = Object.groupBy(publishedEvents, (event): string => event.Dato || 'Udatert') as Record<string, Event[]>;
+const sortedDates = Object.keys(groupedEvents).sort((a, b) => 
+	parseNorwegianDate(a).getTime() - parseNorwegianDate(b).getTime()
+);
 ---
 
 <Layout>
-	<div class="grid grid-cols-1 md:grid-cols-2 p-8 gap-8 place-items-center max-w-4xl mx-auto">
-		{events.map((event) => (
-			<EventCard client:load event={event} />
+	<div class="max-w-4xl mx-auto p-8">
+		{sortedDates.map((date) => (
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 text-center">{formatNorwegianDate(date)}</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+					{groupedEvents[date].map((event) => (
+						<EventCard client:load event={event} />
+					))}
+				</div>
+			</div>
 		))}
 	</div>
 </Layout>
