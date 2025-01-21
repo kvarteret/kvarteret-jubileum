@@ -4,121 +4,45 @@ import Layout from '../layouts/Layout.astro';
 import '@/styles/globals.css'
 import { EventCard } from './EventCard'
 import events from '@/assets/events.json'
-
-const monthNames = [
-	'Januar',
-	'Februar',
-	'Mars',
-	'April',
-	'Mai',
-	'Juni',
-	'Juli',
-	'August',
-	'September',
-	'Oktober',
-	'November',
-	'Desember'
-] as const;
-
-type MonthMap = Record<string, number>;
-
-/**
- * Be hereby warned, a lot of data cleaning is done here that should not be done here
- * We're simply reading the input data, filtering, then grouping by *cleaned* dates
- * then we write to loops of info, the dates, and for the inner loop we write events.
- * **/
-const NORWEGIAN_MONTHS: MonthMap = {
-	'jan': 0, 'januar': 0,
-	'feb': 1, 'februar': 1,
-	'mar': 2, 'mars': 2,
-	'apr': 3, 'april': 3,
-	'mai': 4,
-	'jun': 5, 'juni': 5,
-	'jul': 6, 'juli': 6,
-	'aug': 7, 'august': 7,
-	'sep': 8, 'september': 8,
-	'okt': 9, 'oktober': 9,
-	'nov': 10, 'november': 10,
-	'des': 11, 'desember': 11
-} as const;
-
-const cleanDateString = (dateStr: string): string => {
-	return dateStr.toLowerCase().trim();
-};
-
-const isMonthOnly = (dateStr: string): boolean => {
-	return NORWEGIAN_MONTHS[dateStr] !== undefined;
-};
-
-const createDateFromMonthOnly = (month: string): Date => {
-	return new Date(2024, NORWEGIAN_MONTHS[month], 1);
-};
-
-const parseDateParts = (dateStr: string): { day: number; month: string } | null => {
-	const parts = dateStr.split('.');
-	const day = parseInt(parts[0]);
-	const month = parts[1]?.trim();
-
-	if (!month || !(month in NORWEGIAN_MONTHS)) {
-		return null;
-	}
-
-	return { day, month };
-};
-
-const parseNorwegianDate = (dateStr: string): Date => {
-	if (!dateStr) return new Date(0);
-
-	const cleanStr = cleanDateString(dateStr);
-
-	// Handle full month names like "Februar"
-	if (isMonthOnly(cleanStr)) {
-		return createDateFromMonthOnly(cleanStr);
-	}
-
-	// Handle dates like "14.februar" or "14.februar "
-	const dateParts = parseDateParts(cleanStr);
-	if (!dateParts) {
-		return new Date(0);
-	}
-
-	return new Date(2025, NORWEGIAN_MONTHS[dateParts.month], dateParts.day);
-};
-
-const formatNorwegianDate = (dateStr: string): string => {
-	if (dateStr === 'Udatert') return dateStr;
-	
-	const date = parseNorwegianDate(dateStr);
-	const day = date.getDate();
-	const month = monthNames[date.getMonth()];
-	
-	// If it's just a month (day is 1 and original string doesn't contain a number)
-	if (day === 1 && !/\d/.test(dateStr)) {
-		return month;
-	}
-	
-	return `${day}. ${month}`;
-};
+import { pipe } from 'remeda'
+import { parseNorwegianDate, formatNorwegianDate } from '@/lib/date-utils'
 
 type Event = typeof events[number];
-const publishedEvents = events.filter(event => event["Skal ut"] !== "FALSE");
-const groupedEvents = Object.groupBy(publishedEvents, (event): string => event.Dato || 'Udatert') as Record<string, Event[]>;
-const sortedDates = Object.keys(groupedEvents).sort((a, b) => 
-	parseNorwegianDate(a).getTime() - parseNorwegianDate(b).getTime()
+type EventGroups = Record<string, Event[]>;
+
+const filterPublished = (events: Event[]): Event[] =>
+	events.filter(event => event["Skal ut"] !== "FALSE");
+
+const groupByDate = (events: Event[]): EventGroups =>
+	Object.groupBy(events, (event): string => event.Dato || 'Udatert') as EventGroups;
+
+const sortByDate = (dates: string[]): string[] =>
+	dates.sort((a, b) => parseNorwegianDate(a).getTime() - parseNorwegianDate(b).getTime());
+
+const { groupedEvents, sortedDates } = pipe(
+	events,
+	filterPublished,
+	groupByDate,
+	(grouped: EventGroups) => ({
+		groupedEvents: grouped,
+		sortedDates: sortByDate(Object.keys(grouped))
+	})
 );
 ---
 
 <Layout>
-	{sortedDates.map((date) => (
-		<div class="mb-12">
-			<h2 class="text-2xl font-bold mb-6 text-center">{formatNorwegianDate(date)}</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
-				{groupedEvents[date].map((event) => (
-					<EventCard client:load event={event} />
-				))}
+	<div class="max-w-4xl mx-auto p-8">
+		{sortedDates.map((date) => (
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold mb-6 text-center">{formatNorwegianDate(date)}</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center">
+					{groupedEvents[date].map((event) => (
+						<EventCard client:load event={event} />
+					))}
+				</div>
 			</div>
-		</div>
-	))}
+		))}
+	</div>
 </Layout>
 	
 	
