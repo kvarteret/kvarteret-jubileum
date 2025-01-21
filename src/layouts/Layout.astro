@@ -22,14 +22,12 @@ const headerContent = `
   </head>
   
   <body class="bg-black text-primary-gold font-glacial mx-auto">
-	  <!-- <ParticlesComponent client:load /> -->
+	  <ParticlesComponent client:load />
 	  <header class="sticky top-0">
 		<div class="backdrop"></div>
-		<div class="overflow-x-hidden py-4">
-		  <Marquee className="[--duration:60s] [--gap:0rem]">
+		  <Marquee className="py-4 [--duration:60s] [--gap:0rem]">
 			<div set:html={headerContent}></div>
 		  </Marquee>
-		</div>
 	  </header>
 
 	  <main class="max-w-4xl mx-auto p-8">
@@ -54,13 +52,6 @@ const headerContent = `
       margin: 0;
       width: 100%;
       height: 100%;
-    }
-
-    header {
-      --thickness: 4px;
-      position: sticky;
-      top: 0;
-      background: hsl(0deg 0% 0% / 0.3);
     }
 
     @supports (backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px)) {
