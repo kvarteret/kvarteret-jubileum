@@ -1,7 +1,8 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card"
 import { Button } from "../components/ui/button"
 import { cn } from "@/lib/utils"
-import styles from './EventCard.module.css'
+import ticketSvg from "../assets/ticket.svg?raw"
+import facebookSvg from "../assets/fb.svg?raw"
 
 interface Event {
   Dato: string
@@ -48,13 +49,13 @@ export const EventCard = ({ event, className }: EventCardProps) => {
 
 const EventHeader = ({ title, time, location }: EventHeaderProps) => (
   <CardHeader className="space-y-4">
-    <div className="flex place-content-between">
-      <CardTitle className="text-xl flex tracking-wide uppercase font-bold leading-tight">
+    <div className="flex flex-col">
+      <CardTitle className="text-xl flex tracking-wide uppercase font-bold leading-tight mr-8">
         {title}
       </CardTitle>
-      <div className="flex flex-col text-right">
-      {time && <p className="text-sm text-muted-foreground">{time}</p>}
+      <div className="flex flex-col ">
       {location && <span className="uppercase">{location}</span>}
+      {time && <p className="text-sm text-muted-foreground">{time}</p>}
       </div>
     </div>
   </CardHeader>
@@ -88,35 +89,30 @@ const EventLinks = ({ ticketUrl, facebookUrl, price }: EventLinksProps) => {
 
   return (
     <CardFooter>
-      <div className={cn(styles["event-links-grid"], "gap-x-4 gap-y-1  items-start")}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 md:gap-y-2 w-full
+        [grid-template-areas:'._.'_'facebook_facebook'_'price_tickets'] 
+        md:[grid-template-areas:'._price'_'facebook_tickets']">
         {hasFacebook && (
-          <Button asChild variant="gold" className={styles["facebook-btn"]}>
+          <Button asChild variant="gold" className="[grid-area:facebook] w-full md:w-auto">
             <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-            <img src="fb.svg" alt="Facebook logo" className="inline h-5" />
-               Til Arrangement
+              <span className="inline text-primary-gold items-center" dangerouslySetInnerHTML={{ __html: facebookSvg }} />
+              Til Arrangement
             </a>
           </Button>
         )}
         {price && (
-          <div
-            className={cn(styles["price-text"], "text-sm flex items-center")}
-          >
+          <div className="[grid-area:price] text-sm flex items-center justify-self-end md:justify-self-center">
             <span className="font-medium">💰</span>
             <span className="ml-1">CC {price}</span>
           </div>
         )}
         {hasTickets && (
-          <>
-            <Button
-              asChild
-              variant="goldOutline"
-              className={styles["tickets-btn"]}
-            >
-              <a href={ticketUrl} target="_blank" rel="noopener noreferrer">
-                🎟️ Kjøp Billetter
-              </a>
-            </Button>
-          </>
+          <Button asChild variant="goldOutline" className="[grid-area:tickets] w-full md:justify-self-end">
+            <a href={ticketUrl} target="_blank" rel="noopener noreferrer">
+              <span className="inline text-primary-gold" dangerouslySetInnerHTML={{ __html: ticketSvg }} />
+              Kjøp Billetter
+            </a>
+          </Button>
         )}
       </div>
     </CardFooter>
