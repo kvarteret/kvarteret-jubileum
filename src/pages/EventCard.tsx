@@ -85,7 +85,6 @@ const EventLinks = ({ ticketUrl, facebookUrl, price }: EventLinksProps) => {
   const hasTickets = ticketUrl && ticketUrl !== "KOMMER"
   const hasFacebook = facebookUrl && facebookUrl !== "KOMMER"
 
-  if (!hasTickets && !hasFacebook) return null
 
   return (
     <CardFooter>
