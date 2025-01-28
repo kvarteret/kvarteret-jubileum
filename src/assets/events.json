@@ -114,8 +114,8 @@
     "Hvor": "Tivoli",
     "Tittel": "Silent Disco: Galentines",
     "Pris S\\O": "30",
-    "FB-Event": "KOMMER",
-    "Link til TicketCo": "KOMMER",
+    "FB-Event": "https://facebook.com/events/s/silent-disco-galentines/616496107696755/",
+    "Link til TicketCo": "https://studentersamfunnetibergen.hoopla.no/event/904217909?",
     "Samarbeid med": "Studentersamfunnet",
     "Skal ut": "TRUE"
   },
@@ -126,7 +126,10 @@
     "Hvor": "Stjernesalen",
     "Tittel": "Karaoke",
     "Pris S\\O": "GRATIS",
-    "FB-Event": "https://fb.me/e/5l2Vs04Sq[]TRUE"
+    "FB-Event": "https://fb.me/e/5l2Vs04Sq",
+    "Link til TicketCo": "",
+    "Samarbeid med": "",
+    "Skal ut": "TRUE"
   },
   {
     "Dato": "15.februar ",
@@ -182,8 +185,8 @@
     "Dag": "mandag",
     "Hvor": "Teglverket",
     "Tittel": "Ølsmaking m\\ jubileumsøl",
-    "Pris S\\O": "150 \\ 200",
-    "FB-Event": "KOMMER",
+    "Pris S\\O": "120\\150",
+    "FB-Event": "https://fb.me/e/7PQfBiLKx",
     "Link til TicketCo": "KOMMER",
     "Samarbeid med": "",
     "Skal ut": "TRUE"
@@ -194,9 +197,9 @@
     "Dag": "mandag",
     "Hvor": "Teglverket",
     "Tittel": "Musikkbingo m\\ liveband",
-    "Pris S\\O": "",
-    "FB-Event": "KOMMER",
-    "Link til TicketCo": "KOMMER",
+    "Pris S\\O": "GRATIS",
+    "FB-Event": "https://fb.me/e/E3NoN8R0a",
+    "Link til TicketCo": "",
     "Samarbeid med": "",
     "Skal ut": "TRUE"
   },
@@ -267,7 +270,7 @@
     "Hvor": "Tivoli",
     "Tittel": "Korpils - en konsert med Sirenene, MAR og BLAK",
     "Pris S\\O": "50 \\ 100",
-    "FB-Event": "KOMMER",
+    "FB-Event": "https://fb.me/e/5mw127ZRZ",
     "Link til TicketCo": "https://kvarteret.ticketco.events/no/nb/e/korpils__en_konsert_med_mar_sirenene_og_blak",
     "Samarbeid med": "MAR, Sirenene og BLAK",
     "Skal ut": "TRUE"
@@ -310,6 +313,18 @@
   },
   {
     "Dato": "21.februar ",
+    "Når": "",
+    "Dag": "",
+    "Hvor": "Storelogen",
+    "Tittel": "Intern ølsmaking",
+    "Pris S\\O": "",
+    "FB-Event": "",
+    "Link til TicketCo": "",
+    "Samarbeid med": "",
+    "Skal ut": "FALSE"
+  },
+  {
+    "Dato": "21.februar ",
     "Når": "20:00?",
     "Dag": "fredag",
     "Hvor": "Teglverket",
@@ -319,5 +334,29 @@
     "Link til TicketCo": "",
     "Samarbeid med": "",
     "Skal ut": "FALSE"
+  },
+  {
+    "Dato": "21.februar ",
+    "Når": "22:00",
+    "Dag": "",
+    "Hvor": "Stjernesalen",
+    "Tittel": "Karaoke",
+    "Pris S\\O": "",
+    "FB-Event": "https://fb.me/e/4wxdAfuBk",
+    "Link til TicketCo": "",
+    "Samarbeid med": "",
+    "Skal ut": "TRUE"
+  },
+  {
+    "Dato": "21.februar ",
+    "Når": "23:00",
+    "Dag": "lørdag",
+    "Hvor": "Tivoli",
+    "Tittel": "Silent Disco",
+    "Pris S\\O": "",
+    "FB-Event": "https://fb.me/e/2TsX9sodh",
+    "Link til TicketCo": "",
+    "Samarbeid med": "",
+    "Skal ut": "TRUE"
   }
 ]
