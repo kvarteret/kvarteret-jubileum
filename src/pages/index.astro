@@ -10,8 +10,10 @@ import { parseNorwegianDate, formatNorwegianDate } from '@/lib/date-utils'
 type Event = typeof events[number];
 type EventGroups = Record<string, Event[]>;
 
-const filterPublished = (events: Event[]): Event[] =>
-	events.filter(event => event["Skal ut"] !== "FALSE");
+const onlyPublic = (events: Event[]): Event[] =>
+	events
+		.filter(event => event["Skal ut"] === "TRUE")
+	    .filter(event => event["Skal ikke på nettside"] === "FALSE")
 
 const groupByDate = (events: Event[]): EventGroups =>
 	Object.groupBy(events, (event): string => event.Dato || 'Udatert') as EventGroups;
@@ -21,7 +23,7 @@ const sortByDate = (dates: string[]): string[] =>
 
 const { groupedEvents, sortedDates } = pipe(
 	events,
-	filterPublished,
+	onlyPublic,
 	groupByDate,
 	(grouped: EventGroups) => ({
 		groupedEvents: grouped,
